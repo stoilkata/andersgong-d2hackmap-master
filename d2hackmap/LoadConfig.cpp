@@ -733,6 +733,8 @@ BOOL LoadJsonConfig() {
 		{"display.serverIp", "Server Ip Toggle"},
 		{"display.areaLevel", "Area Level Toggle"},
 		{"display.mousePosition", "Mouse Position Toggle"},
+
+		// Critical automap settings - these were missing!
 		{"automap.autoRevealAct", "Auto Reveal Act"},
 		{"automap.autoMapToggle", "AutoMap Toggle"},
 		{"automap.autoMapLevelNames", "Automap Level Names Toggle"},
@@ -742,6 +744,7 @@ BOOL LoadJsonConfig() {
 		{"automap.diagonalScroll", "Diagonal Scroll Toggle"},
 		{"automap.scrollMode", "Scroll Mode"},
 		{"automap.miniShrines", "Mini Shrines Toggle"},
+
 		{"visuals.fullVisuals", "Full Visuals Toggle"},
 		{"visuals.weather", "Weather Toggle"},
 		{"visuals.infravision", "Infravision Toggle"},

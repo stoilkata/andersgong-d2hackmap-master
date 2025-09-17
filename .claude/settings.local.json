@@ -6,7 +6,14 @@
       "Bash(git commit:*)",
       "Bash(gh:*)",
       "Bash(git remote add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(where msbuild)",
+      "Bash(\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\MSBuild.exe\" d2hackmap.sln /p:Configuration=Release /p:Platform=Win32 /v:minimal)",
+      "Bash(msbuild:*)",
+      "Bash(\"/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe\" d2hackmap.sln /p:Configuration=Release /p:Platform=Win32 /v:minimal)",
+      "Bash(\"/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe\" d2hackmap\\d2hackmap.vcxproj -p:Configuration=Release -p:Platform=Win32)",
+      "Bash(\"/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe\" d2hackmap/d2hackmap.vcxproj -p:Configuration=Release -p:Platform=Win32)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
