@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="源文件\Module">
+      <UniqueIdentifier>{1fbe7813-0ec2-4a9a-b3af-42c97ddaa6b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module\GameInfo">
+      <UniqueIdentifier>{5a28dac7-65b0-4694-a143-e87e6b4fc44d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module\Item">
+      <UniqueIdentifier>{64ef2d91-b8af-4d16-a863-1d666a9fa73a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module\Protect">
+      <UniqueIdentifier>{14075a37-8c36-45d6-8677-2812c6acd7ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module\Unicode">
+      <UniqueIdentifier>{83fdba54-1833-4235-bcc1-f810ea7bd2b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module\Unit">
+      <UniqueIdentifier>{69b8de61-1430-48d5-b3af-0f2138f278b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module\Map">
+      <UniqueIdentifier>{42bc45ef-3d4a-4d76-8230-f6ba9d9e57e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Module\GameHelp">
+      <UniqueIdentifier>{ff88efe0-33d5-44bc-8fbc-7636b1d14ce8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="头文件\Module">
+      <UniqueIdentifier>{38201363-262c-4207-964e-763ec3600e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\M">
+      <UniqueIdentifier>{317aa6fd-9068-4377-bb17-4682d1e5ed47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\Map">
+      <UniqueIdentifier>{16fb7839-bbb4-4829-b77f-e43cb7bbcb79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\GameHelp">
+      <UniqueIdentifier>{723c18ef-6c56-42bd-8bce-862fe88a3cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\GameInfo">
+      <UniqueIdentifier>{df09997f-4d16-4498-af3f-c8246b11ebf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\Item">
+      <UniqueIdentifier>{cc4e4efc-0771-470b-b765-2972643367b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\Unit">
+      <UniqueIdentifier>{a8f7eebe-c6e7-481a-832c-3725e3756f44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\Protect">
+      <UniqueIdentifier>{42b99f46-f42b-45b4-b66a-f1912c0490e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Module\Unicode">
+      <UniqueIdentifier>{aa408a34-4c64-4827-a2a4-872f6bdf77c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\D2">
+      <UniqueIdentifier>{6d1657f6-e119-4fb3-9eac-35492db77c88}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="d2hackmap.def">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DllMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalVariable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpFunc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Install.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadConfig.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="D2CallStub.cpp">
+      <Filter>源文件\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="D2HelpFunc.cpp">
+      <Filter>源文件\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMainLoop.cpp">
+      <Filter>源文件\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyEventControl.cpp">
+      <Filter>源文件\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketHandler.cpp">
+      <Filter>源文件\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>源文件\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="GameCount.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMonitor.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageLog.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="PartyInfo.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomInfo.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenHook.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowOrbs.cpp">
+      <Filter>源文件\Module\GameInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemDefine.cpp">
+      <Filter>源文件\Module\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemDesc.cpp">
+      <Filter>源文件\Module\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemExtInfo.cpp">
+      <Filter>源文件\Module\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemInGround.cpp">
+      <Filter>源文件\Module\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemName.cpp">
+      <Filter>源文件\Module\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemVariableProp.cpp">
+      <Filter>源文件\Module\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckDangerous.cpp">
+      <Filter>源文件\Module\Protect</Filter>
+    </ClCompile>
+    <ClCompile Include="IMEProtect.cpp">
+      <Filter>源文件\Module\Protect</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemSocketProtect.cpp">
+      <Filter>源文件\Module\Protect</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestProtect.cpp">
+      <Filter>源文件\Module\Protect</Filter>
+    </ClCompile>
+    <ClCompile Include="UnicodeSupport.cpp">
+      <Filter>源文件\Module\Unicode</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterColour.cpp">
+      <Filter>源文件\Module\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterDeath.cpp">
+      <Filter>源文件\Module\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterLifeBar.cpp">
+      <Filter>源文件\Module\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterTC.cpp">
+      <Filter>源文件\Module\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerLifeBar.cpp">
+      <Filter>源文件\Module\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewTargetUnitInfo.cpp">
+      <Filter>源文件\Module\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewUnitStat.cpp">
+      <Filter>源文件\Module\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoMap.cpp">
+      <Filter>源文件\Module\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoMapBlob.cpp">
+      <Filter>源文件\Module\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoMapCell.cpp">
+      <Filter>源文件\Module\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MinimapPoint.cpp">
+      <Filter>源文件\Module\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomArea.cpp">
+      <Filter>源文件\Module\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoEnchant.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameChat.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFilter.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWindow.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="NsPassBugFix.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="OutTownSelect.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="PartyHelp.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="PermShowItem.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickBackTown.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickGame.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSwapItem.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollLock.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="SkipNpcMessage.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="Socket.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="TransGoldHelp.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+    <ClCompile Include="ULCPath.cpp">
+      <Filter>源文件\Module\GameHelp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpFunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="History.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Install.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MyStructs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="m_end.h">
+      <Filter>头文件\Module\M</Filter>
+    </ClInclude>
+    <ClInclude Include="m_PacketHandler.h">
+      <Filter>头文件\Module\M</Filter>
+    </ClInclude>
+    <ClInclude Include="m_pub.h">
+      <Filter>头文件\Module\M</Filter>
+    </ClInclude>
+    <ClInclude Include="m_start.h">
+      <Filter>头文件\Module\M</Filter>
+    </ClInclude>
+    <ClInclude Include="m_Test.h">
+      <Filter>头文件\Module\M</Filter>
+    </ClInclude>
+    <ClInclude Include="m_AutoMap.h">
+      <Filter>头文件\Module\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="m_AutoMapBlob.h">
+      <Filter>头文件\Module\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="m_AutoMapCell.h">
+      <Filter>头文件\Module\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="m_MinimapPoint.h">
+      <Filter>头文件\Module\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="m_RoomArea.h">
+      <Filter>头文件\Module\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="m_AutoEnchant.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_GameChat.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_GameFilter.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_GameWindow.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_NsPassBugFix.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_OutTownSelect.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_PartyHelp.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_PermShowItem.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_QuickBackTown.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_QuickGame.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_QuickSwapItem.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ScrollLock.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_SkipNpcMessage.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_Socket.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_TransGoldHelp.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_UlCPath.h">
+      <Filter>头文件\Module\GameHelp</Filter>
+    </ClInclude>
+    <ClInclude Include="m_DrawFunc.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_Environment.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_GameCount.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_GameMonitor.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_MessageLog.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_PartyInfo.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_RoomInfo.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ScreenHook.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ShowOrbs.h">
+      <Filter>头文件\Module\GameInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ItemDefine.h">
+      <Filter>头文件\Module\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ItemDesc.h">
+      <Filter>头文件\Module\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ItemExtInfo.h">
+      <Filter>头文件\Module\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ItemInGround.h">
+      <Filter>头文件\Module\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ItemName.h">
+      <Filter>头文件\Module\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ItemVariableProp.h">
+      <Filter>头文件\Module\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="m_MonsterDeath.h">
+      <Filter>头文件\Module\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="m_MonsterLifeBar.h">
+      <Filter>头文件\Module\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="m_PlayerLifeBar.h">
+      <Filter>头文件\Module\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ViewTargetUnitInfo.h">
+      <Filter>头文件\Module\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ViewUnitStat.h">
+      <Filter>头文件\Module\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="m_CheckDangerous.h">
+      <Filter>头文件\Module\Protect</Filter>
+    </ClInclude>
+    <ClInclude Include="m_IMEProtect.h">
+      <Filter>头文件\Module\Protect</Filter>
+    </ClInclude>
+    <ClInclude Include="m_ItemSocketProtect.h">
+      <Filter>头文件\Module\Protect</Filter>
+    </ClInclude>
+    <ClInclude Include="m_QuestProtect.h">
+      <Filter>头文件\Module\Protect</Filter>
+    </ClInclude>
+    <ClInclude Include="m_UnicodeSupport.h">
+      <Filter>头文件\Module\Unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="d2callstub.h">
+      <Filter>头文件\D2</Filter>
+    </ClInclude>
+    <ClInclude Include="d2helpfunc.h">
+      <Filter>头文件\D2</Filter>
+    </ClInclude>
+    <ClInclude Include="d2Info.h">
+      <Filter>头文件\D2</Filter>
+    </ClInclude>
+    <ClInclude Include="d2packet.h">
+      <Filter>头文件\D2</Filter>
+    </ClInclude>
+    <ClInclude Include="d2ptrs.h">
+      <Filter>头文件\D2</Filter>
+    </ClInclude>
+    <ClInclude Include="d2structs.h">
+      <Filter>头文件\D2</Filter>
+    </ClInclude>
+    <ClInclude Include="d2vars.h">
+      <Filter>头文件\D2</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
