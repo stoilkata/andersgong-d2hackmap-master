@@ -1,5 +1,5 @@
 #include "stdafx.h"
-
+#include "JsonConfig.h"
 
 #define CONFIG_LOAD
 #include "Module.h"
@@ -566,6 +566,251 @@ void StoreConfig(ConfigVar *config , char *left , char *right){
 	}
 }
 
+// JSON Configuration loading functions
+BOOL LoadJsonConfigValue(const JsonValue& value, ConfigVar* config) {
+	if (!config) return FALSE;
+
+	switch(config->type) {
+		case 1: // ToggleVar
+		{
+			ToggleVar *tgKey = (ToggleVar *)config->pVar;
+			tgKey->isLoad = TRUE;
+
+			if (value.isObject()) {
+				// Handle object format like {"enabled": true, "key": "F9"}
+				if (value.contains("enabled")) {
+					tgKey->isOn = value["enabled"].asBool() ? 1 : 0;
+				}
+				if (value.contains("key")) {
+					std::string keyStr = value["key"].asString();
+					tgKey->key = ConvertKeyFromJson(keyStr);
+				}
+				if (value.contains("value")) {
+					tgKey->value = (BYTE)value["value"].asInt();
+				}
+			} else if (value.isBool()) {
+				// Handle simple boolean format
+				tgKey->isOn = value.asBool() ? 1 : 0;
+				tgKey->key = (BYTE)-1;
+			}
+			break;
+		}
+		case 2: // Numeric value
+		{
+			if (value.isNumber()) {
+				if (config->size == 1) {
+					*((BYTE *)config->pVar) = (BYTE)value.asInt();
+				} else if (config->size == 2) {
+					*((WORD *)config->pVar) = (WORD)value.asInt();
+				} else if (config->size == 4) {
+					*((DWORD *)config->pVar) = (DWORD)value.asInt();
+				}
+			} else if (value.isString()) {
+				// Handle special string values
+				std::string strVal = value.asString();
+				DWORD numVal = 0;
+
+				if (strVal == "disabled" || strVal == "false") numVal = 0;
+				else if (strVal == "enabled" || strVal == "true") numVal = 1;
+				else if (strVal == "exit_game") numVal = 1;
+				else if (strVal == "town_portal") numVal = 2;
+				else if (strVal == "dual_display") numVal = 2;
+				else if (strVal == "auto_convert_to_chinese") numVal = 2;
+				else if (strVal == "switch_position") numVal = 2;
+				else if (strVal == "auto_position") numVal = 3;
+				else numVal = atoi(strVal.c_str());
+
+				if (config->size == 1) {
+					*((BYTE *)config->pVar) = (BYTE)numVal;
+				} else if (config->size == 2) {
+					*((WORD *)config->pVar) = (WORD)numVal;
+				} else if (config->size == 4) {
+					*((DWORD *)config->pVar) = (DWORD)numVal;
+				}
+			}
+			break;
+		}
+		case 3: // String (single byte)
+		{
+			if (value.isString()) {
+				std::string strVal = value.asString();
+				if (config->size > 1) {
+					for(int i = 0; i < config->size; i++) {
+						strncpy((char *)config->pVar + config->anArrayMax[0]*i, strVal.c_str(), config->anArrayMax[0]-1);
+					}
+				} else {
+					strncpy((char *)config->pVar, strVal.c_str(), config->anArrayMax[0]-1);
+				}
+			}
+			break;
+		}
+		case 4: // String (wide char with color support)
+		{
+			if (value.isString()) {
+				std::string strVal = value.asString();
+				if (config->size > 1) {
+					for(int i = 0; i < config->size; i++) {
+						ConvertToD2String((wchar_t *)config->pVar + config->anArrayMax[0]*i, (char*)strVal.c_str(), config->anArrayMax[0]-1);
+					}
+				} else {
+					ConvertToD2String((wchar_t *)config->pVar, (char*)strVal.c_str(), config->anArrayMax[0]-1);
+				}
+			}
+			break;
+		}
+	}
+	return TRUE;
+}
+
+BOOL LoadJsonConfig() {
+	char filename[MAX_PATH];
+	sprintf(filename, "%sd2hackmap.json", szPluginPath);
+
+	HANDLE hFile = OpenFileRead(filename);
+	if (hFile == INVALID_HANDLE_VALUE) {
+		return FALSE; // JSON file doesn't exist, fallback to CFG
+	}
+
+	// Read entire JSON file
+	DWORD fileSize = GetFileSize(hFile, NULL);
+	if (fileSize == INVALID_FILE_SIZE || fileSize > 1024*1024) { // Limit to 1MB
+		CloseHandle(hFile);
+		return FALSE;
+	}
+
+	std::string jsonContent;
+	jsonContent.resize(fileSize);
+	DWORD bytesRead;
+	if (!ReadFile(hFile, &jsonContent[0], fileSize, &bytesRead, NULL) || bytesRead != fileSize) {
+		CloseHandle(hFile);
+		return FALSE;
+	}
+	CloseHandle(hFile);
+
+	// Parse JSON
+	JsonParser parser;
+	JsonValue root = parser.parse(jsonContent);
+
+	if (!root.isObject()) {
+		AddWarningMessage("Invalid JSON format", 1);
+		return FALSE;
+	}
+
+	// Map JSON paths to config variables
+	struct JsonConfigMapping {
+		const char* jsonPath;
+		const char* configName;
+	};
+
+	static JsonConfigMapping mappings[] = {
+		{"general.showCfgCheckInfo", "Show CFGCheck Info"},
+		{"general.enableLanguageCheck", "Enable Language Check"},
+		{"general.gameFilterSupport", "GameFilterSupport"},
+		{"general.localizationSupport", "Localization Support"},
+		{"hotkeys.reloadConfig", "Reload Config Key"},
+		{"hotkeys.quickBackToTown", "Quick Back To Town Key"},
+		{"hotkeys.permShowItemsToggle", "Perm Show Items Toggle"},
+		{"hotkeys.hiddenItemsToggle", "Hidden Items Toggle"},
+		{"hotkeys.socketProtectToggle", "Socket Protect Toggle"},
+		{"hotkeys.quickExitGame", "Quick Exit Game Key"},
+		{"hotkeys.quickNextGame", "Quick Next Game Key"},
+		{"hotkeys.viewEquipment", "View Equipment Key"},
+		{"hotkeys.viewPlayerStats", "View Player Stats Key"},
+		{"hotkeys.autoInviteToggle", "Auto Invite Toggle"},
+		{"hotkeys.autoPartyToggle", "Auto Party Toggle"},
+		{"display.useCustomFont", "Use Custom Font Toggle"},
+		{"display.autoLootPermit", "Auto Loot Permit"},
+		{"display.monsterResists", "Monster Resists Toggle"},
+		{"display.itemValue", "Item Value Toggle"},
+		{"display.itemLevels", "Item Levels Toggle"},
+		{"display.showItemVariableProp", "Show Item Variable Prop Toggle"},
+		{"display.showPing", "Show Ping Toggle"},
+		{"display.outTownSelect", "Out Town Select Toggle"},
+		{"display.showBaseED", "Show Base ED Toggle"},
+		{"display.showPartyLevel", "Show Party Level Toggle"},
+		{"display.gameTime", "Game Time Toggle"},
+		{"display.clock", "Clock Toggle"},
+		{"display.serverIp", "Server Ip Toggle"},
+		{"display.areaLevel", "Area Level Toggle"},
+		{"display.mousePosition", "Mouse Position Toggle"},
+		{"automap.autoRevealAct", "Auto Reveal Act"},
+		{"automap.autoMapToggle", "AutoMap Toggle"},
+		{"automap.autoMapLevelNames", "Automap Level Names Toggle"},
+		{"automap.minimapToggle", "Minimap Toggle"},
+		{"automap.minimapSize", "Minimap Size"},
+		{"automap.scrollMapToggle", "Scroll Map Toggle"},
+		{"automap.diagonalScroll", "Diagonal Scroll Toggle"},
+		{"automap.scrollMode", "Scroll Mode"},
+		{"automap.miniShrines", "Mini Shrines Toggle"},
+		{"visuals.fullVisuals", "Full Visuals Toggle"},
+		{"visuals.weather", "Weather Toggle"},
+		{"visuals.infravision", "Infravision Toggle"},
+		{"visuals.lightRadius", "Light Radius Toggle"},
+		{"visuals.screenShake", "Screen Shake Toggle"},
+		{"visuals.lifeBarTransparency", "Life Bar Transparency"},
+		{"visuals.permShowOrbs", "Perm Show Orbs Toggle"},
+		{"chicken.chickenLifeAction", "Chicken Life Action"},
+		{"items.automapItems", "Automap Items Toggle"},
+		{"items.runeNumbers", "Rune Numbers Toggle"},
+		{"items.socketNumbers", "Socket Numbers Toggle"},
+		{"items.itemLifePerLevel", "Item Life Per Level Toggle"},
+		{"items.goodGoldNumber", "Good Gold Number"},
+		{"monsters.monsterLevel", "Monster Level Toggle"},
+		{"monsters.monsterTC", "Monster TC Toggle"},
+		{"monsters.monsterRuneTC", "Monster Rune TC Toggle"},
+		{"monsters.monsterHPPercent", "Monster HPPercent Toggle"},
+		{"monsters.monsterDistance", "Monster Distance Toggle"},
+		{"monsters.playerLevel", "Player Level Toggle"},
+		{"monsters.playerDistance", "Player Distance Toggle"},
+		{"monsters.playerHPPercent", "Player HPPercent Toggle"},
+		{"monsters.bossName", "Boss Name Toggle"},
+		{"monsters.automapMonsters", "Automap Monsters Toggle"},
+		{"chests.automapChests", "Automap Chests Toggle"},
+		{"missiles.automapMissiles", "Automap Missiles Toggle"},
+		{"advanced.autoNextGameName", "Auto Next Game Name"},
+		{"advanced.autoNextGamePassword", "Auto Next Game Password"},
+		{"advanced.inputLine", "Input Line Toggle"},
+		{"advanced.rightClickSwap", "Right Click Swap Toggle"},
+		{"advanced.ctrlClickSwap", "Ctrl Click Swap Toggle"},
+		{"advanced.quickDrop", "Quick Drop Toggle"}
+	};
+
+	// Process mappings
+	for (int i = 0; i < sizeof(mappings)/sizeof(mappings[0]); i++) {
+		// Navigate JSON path
+		JsonValue currentValue = root;
+		std::string path = mappings[i].jsonPath;
+		size_t pos = 0;
+
+		while (pos < path.length()) {
+			size_t dotPos = path.find('.', pos);
+			if (dotPos == std::string::npos) dotPos = path.length();
+
+			std::string segment = path.substr(pos, dotPos - pos);
+			if (currentValue.contains(segment)) {
+				currentValue = currentValue[segment];
+			} else {
+				currentValue = JsonValue(); // null value
+				break;
+			}
+
+			pos = dotPos + 1;
+		}
+
+		if (!currentValue.isNull()) {
+			// Find corresponding config variable
+			for (int j = 0; j < _ARRAYSIZE(aConfigVars); j++) {
+				if (_stricmp(aConfigVars[j].szCmdName, mappings[i].configName) == 0) {
+					LoadJsonConfigValue(currentValue, &aConfigVars[j]);
+					break;
+				}
+			}
+		}
+	}
+
+	return TRUE;
+}
+
 
 BOOL LoadConfig(){
 	//����vcb
@@ -598,8 +843,12 @@ BOOL LoadConfig(){
 	}
 	CloseHandle(hFile);
 
-	//����cfg
-	hFile = OpenFileReadHelper("CFG");
+	// Try to load JSON config first, fallback to CFG if not found
+	BOOL jsonLoaded = LoadJsonConfig();
+
+	//����cfg (only if JSON wasn't loaded)
+	if (!jsonLoaded) {
+		hFile = OpenFileReadHelper("CFG");
 	while ( ReadFileLine(line, sizeof(line), hFile) ) {
 		__try {
 			SplitLine( line, left, right );
@@ -638,6 +887,8 @@ BOOL LoadConfig(){
 		}
 	}
 	CloseHandle(hFile);
+	} // End of CFG loading block
+
 	__try {
 		FixValues();
 		InitKeyEvent();

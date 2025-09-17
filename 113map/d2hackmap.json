@@ -1,0 +1,354 @@
+{
+  "general": {
+    "showCfgCheckInfo": true,
+    "enableLanguageCheck": true,
+    "gameFilterSupport": true,
+    "localizationSupport": "auto_convert_to_chinese",
+    "cfgVersionEng": "FlashDance's MapCfg",
+    "cfgVersionChi": "FlashDance's MapCfg"
+  },
+  "hotkeys": {
+    "reloadConfig": "L",
+    "quickBackToTown": "Backspace",
+    "permShowItemsToggle": {
+      "enabled": true,
+      "key": "NumpadMinus"
+    },
+    "hiddenItemsToggle": {
+      "enabled": false,
+      "key": "NumpadPlus"
+    },
+    "socketProtectToggle": {
+      "enabled": true,
+      "key": "Insert"
+    },
+    "quickExitGame": "Minus",
+    "quickNextGame": "Plus",
+    "viewEquipment": "K",
+    "viewPlayerStats": "Slash",
+    "nextPlayerStat": "Period",
+    "previousPlayerStat": "Comma",
+    "viewSocketablesToggle": {
+      "enabled": false,
+      "key": "9"
+    },
+    "viewSocketBaseItemsToggle": {
+      "enabled": false,
+      "key": "0"
+    },
+    "autoInviteToggle": {
+      "enabled": true,
+      "key": "F9"
+    },
+    "autoPartyToggle": {
+      "enabled": true,
+      "key": "F11"
+    },
+    "chickenLifeToggle": {
+      "enabled": false,
+      "key": "NumpadDivide"
+    }
+  },
+  "display": {
+    "useCustomFont": true,
+    "autoLootPermit": true,
+    "whisperNotice": false,
+    "firstPlayerStatKey": -1,
+    "monsterResists": true,
+    "itemBasicStats": false,
+    "itemValue": true,
+    "itemLevels": true,
+    "showItemVariableProp": true,
+    "showExp": {
+      "enabled": true,
+      "mode": "dual_display"
+    },
+    "showPing": true,
+    "killCount": {
+      "enabled": true,
+      "color": "yellow"
+    },
+    "getHitCount": {
+      "enabled": true,
+      "color": "red"
+    },
+    "outTownSelect": true,
+    "showBaseED": true,
+    "showPartyPosition": false,
+    "showPartyLevel": true,
+    "gameTime": true,
+    "clock": true,
+    "layerLevelNo": false,
+    "serverIp": true,
+    "areaLevel": true,
+    "mousePosition": true
+  },
+  "automap": {
+    "autoRevealAct": true,
+    "autoMapToggle": true,
+    "autoMapLevelNames": true,
+    "levelNameColor": "white",
+    "staffTombLevelDesc": "%2<==Tomb Here",
+    "minimapSize": 6,
+    "minimapToggle": true,
+    "minimapCellColor": "light_blue",
+    "scrollMapToggle": false,
+    "diagonalScroll": true,
+    "scrollMode": "switch_position",
+    "automapActiveRooms": false,
+    "automapReadyRooms": false,
+    "automapScreenArea": false,
+    "automapActiveRoomsColor": "gray",
+    "automapReadyRoomsColor": "gray",
+    "automapScreenAreaColor": "dark_gray",
+    "miniShrines": true
+  },
+  "mapScrollOffsets": {
+    "key1": "Numpad1",
+    "key2": "Numpad2",
+    "key3": "Numpad3",
+    "key4": "Numpad4",
+    "key5": "Numpad6",
+    "key6": "Numpad7",
+    "key7": "Numpad8",
+    "key8": "Numpad9",
+    "offset1": [-20, 12],
+    "offset2": [0, 12],
+    "offset3": [20, 12],
+    "offset4": [-20, 0],
+    "offset5": [20, 0],
+    "offset6": [-20, -12],
+    "offset7": [0, -12],
+    "offset8": [20, -12]
+  },
+  "blobs": {
+    "player": "BlobCross2",
+    "monster": "BlobCross1",
+    "missile": "BlobDot",
+    "boss": "BlobBoss",
+    "npc": "BlobNpc",
+    "me": "BlobMe",
+    "corpse": "BlobCorpse",
+    "object": "BlobCircle",
+    "item": "BlobItemX"
+  },
+  "visuals": {
+    "fullVisuals": false,
+    "weather": "enabled",
+    "infravision": "enabled",
+    "lightRadius": "enabled",
+    "screenShake": "enabled",
+    "lifeBarTransparency": 2,
+    "lifeBarColor": "dark_green",
+    "permShowOrbs": true
+  },
+  "chicken": {
+    "chickenLifeAction": "exit_game",
+    "chickenHostile": false,
+    "chickenHostileNearby": false,
+    "chickenLife": 0,
+    "chickenLifePercent": 20,
+    "chickenHostileLife": 0,
+    "chickenHostileLifePercent": 20,
+    "chickenHostileNearbyLife": 0,
+    "chickenHostileNearbyLifePercent": 20
+  },
+  "bugs": {
+    "bugAutoQuit": false,
+    "bugAlertTimes": 9,
+    "bugKD": {
+      "enabled": false,
+      "gameCheck": -1,
+      "actionCheck": 2
+    },
+    "bugKM": {
+      "enabled": false,
+      "gameCheck": -1,
+      "actionCheck": 2
+    },
+    "bugKB": {
+      "enabled": true,
+      "gameCheck": -1,
+      "actionCheck": 2
+    }
+  },
+  "items": {
+    "itemQLevel": false,
+    "itemMLevel": false,
+    "itemALevel": false,
+    "itemAfterCube": false,
+    "switchItemShowMode": -1,
+    "defaultItemShowMode": 1,
+    "showIdentifiedItem": true,
+    "showBaseStat": true,
+    "itemExtInfo": true,
+    "itemExtInfoFileEng": "ItemInfo_Eng.cfg",
+    "itemExtInfoFileChi": "ItemInfo_Chi.cfg",
+    "defaultExtInfoColor": "yellow",
+    "automapItems": true,
+    "runeNumbers": true,
+    "socketNumbers": true,
+    "unitNumbers": false,
+    "itemIndexs": {
+      "enabled": false,
+      "key": "NumpadMultiply"
+    },
+    "itemLifePerLevel": true,
+    "etherealItemPrefix": "",
+    "etherealItemPostfix": "%2=Eth=",
+    "goodGoldNumber": 5000,
+    "goodGoldColor": "auto",
+    "poorGoldColor": "auto_hide"
+  },
+  "monsters": {
+    "monsterDeathAnims": true,
+    "monsterLevel": true,
+    "monsterTC": true,
+    "monsterRuneTC": true,
+    "monsterHPPercent": true,
+    "monsterDistance": true,
+    "playerLevel": true,
+    "playerDistance": true,
+    "playerHPPercent": true,
+    "bossName": true,
+    "automapPartyDefault": true,
+    "automapNamesDefault": true,
+    "partyPlayerTextColor": "green",
+    "neutralPlayerTextColor": "blue",
+    "hostilePlayerTextColor": "red",
+    "neutralPlayerColor": "light_gray",
+    "hostilePlayerColor": "red",
+    "hiddenCorpses": false,
+    "automapCorpses": false,
+    "automapMonsters": true,
+    "bossMonsterColor": "orange",
+    "minionMonsterColor": "light_blue",
+    "championMonsterColor": "purple",
+    "act5BarbarianColor": "brown",
+    "superUniqueColor": "orange"
+  },
+  "chests": {
+    "automapChests": true,
+    "closedChestColor": "blue",
+    "lockedChestColor": "purple",
+    "monsterDescColor": "red"
+  },
+  "missiles": {
+    "automapMissiles": true,
+    "hostileMissileColor": "red",
+    "guidedMissileColor": "red",
+    "tracerMissileColor": "white",
+    "otherMissileColor": "red"
+  },
+  "stateMonitor": {
+    "enabled": false,
+    "states": {
+      "freeze": {
+        "enabled": true,
+        "color": "red",
+        "nameEng": "Freeze",
+        "nameChi": "冰冻"
+      },
+      "poison": {
+        "enabled": true,
+        "color": "red",
+        "nameEng": "Poison",
+        "nameChi": "中毒"
+      },
+      "salvation": {
+        "enabled": true,
+        "color": "yellow",
+        "nameEng": "Salvation",
+        "nameChi": "救赎"
+      },
+      "frozenArmor": {
+        "enabled": true,
+        "color": "yellow",
+        "nameEng": "FrozenArmor",
+        "nameChi": "冰甲装甲"
+      }
+    }
+  },
+  "minimapCells": {
+    "act1": {
+      "bloodMoor_denOfEvil": {
+        "enabled": true,
+        "from": "Blood Moor",
+        "to": "Den of Evil"
+      },
+      "coldPlains_crypt": {
+        "enabled": true,
+        "from": "Cold Plains",
+        "to": "Crypt"
+      },
+      "stonyField_cairnStone": {
+        "enabled": true,
+        "from": "Stony Field",
+        "to": "Cairn Stone"
+      }
+    },
+    "act2": {
+      "sewersLevel1_sewersLevel2": {
+        "enabled": true,
+        "from": "Sewers Level 1",
+        "to": "Sewers Level 2"
+      }
+    },
+    "act3": {
+      "spiderForest_spiderCavern": {
+        "enabled": true,
+        "from": "Spider Forest",
+        "to": "Spider Cavern"
+      }
+    },
+    "act4": {
+      "plainsOfDespair_izual": {
+        "enabled": true,
+        "from": "Plains of Despair",
+        "to": "Izual on Minimap"
+      }
+    },
+    "act5": {
+      "arreatPlateau_crystallinePassage": {
+        "enabled": true,
+        "from": "Arreat Plateau",
+        "to": "Crystalline Passage"
+      }
+    }
+  },
+  "colors": {
+    "namedColors": {
+      "white": "#FFFFFF",
+      "red": "#FF0000",
+      "green": "#00FF00",
+      "blue": "#0000FF",
+      "yellow": "#FFFF00",
+      "orange": "#FFA500",
+      "purple": "#800080",
+      "light_blue": "#87CEEB",
+      "light_gray": "#D3D3D3",
+      "dark_gray": "#696969",
+      "brown": "#A52A2A",
+      "dark_green": "#006400",
+      "gray": "#808080"
+    }
+  },
+  "advanced": {
+    "ulcMask": false,
+    "townportalNumsAlert": 3,
+    "skipQuestMessage": "disabled",
+    "autoNextGameName": true,
+    "autoNextGamePassword": true,
+    "inputLine": true,
+    "enterGameSound": false,
+    "rightClickSwap": true,
+    "ctrlClickSwap": true,
+    "quickDrop": true,
+    "messageLog": "disabled",
+    "messageLogFileSize": 1000,
+    "autoPickItem": {
+      "enabled": false,
+      "key": "8"
+    }
+  }
+}
